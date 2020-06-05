@@ -109,7 +109,15 @@ namespace SelecaoBenner
                         if (Query(NroOrigem, i, (i + 1)))
                         {
                             //Chamada recursiva para verificar se as conexões da Origem São "escalas" válidas para o destino.
-                            return Query(i, NroDestino, i);
+                            try
+                            {
+                                return Query(i, NroDestino, i);
+                            }
+                            catch (Exception)
+                            {
+                                return false;
+                            }
+                            
                         }
                         else
                         {
